@@ -1,3 +1,5 @@
+const URL = "https://anime-server.herokuapp.com/animes";
+
 function createimage() {
   // console.log("hello")
   let image = document.getElementById("image").files;
@@ -39,8 +41,11 @@ document.querySelector("#btn").addEventListener(
       body: JSON.stringify(data),
     };
 
-    const res = await fetch("http://localhost:5555/animes", options);
+    const res = await fetch(`${URL}`, options);
     const blob = await res.json();
     //console.log(blob);
+
+    alert("added!!");
+    location.reload();
   })
 );

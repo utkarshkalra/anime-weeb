@@ -1,5 +1,5 @@
 
-const URL = "http://localhost:5555/animes";
+const URL = "https://anime-server.herokuapp.com/animes";
 const wrap = document.querySelector("#wrapper");
 const element = document.getElementById("up");
 
@@ -84,7 +84,7 @@ wrap.addEventListener("click", (e) => {
         method: "DELETE",
       };
 
-      fetch(`http://localhost:5555/animes/${id}`, options).then(res => res.json()).then(() => location.reload());
+      fetch(`${URL}/${id}`, options).then(res => res.json()).then(() => location.reload());
 
 
     }
