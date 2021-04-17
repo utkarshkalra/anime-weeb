@@ -1,5 +1,5 @@
 const URL = "https://anime-server.herokuapp.com/animes";
-
+animeImage="";
 function createimage() {
   // console.log("hello")
   let image = document.getElementById("image").files;
