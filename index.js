@@ -2,7 +2,7 @@
 const URL = "https://anime-server.herokuapp.com/animes";
 const wrap = document.querySelector("#wrapper");
 const element = document.getElementById("up");
-
+const loading =document.querySelector("#loading");
 
 //adding scroll;
 
@@ -10,9 +10,9 @@ getData();
 async function getData() {
   const res = await fetch(URL);
   const data = await res.json();
-  //console.log(data);
+  console.log("kar diya");
 
-  data.forEach((item) => {
+  data.map((item) => {
 
     const card = document.createElement("div");
     const image = document.createElement("img");
@@ -54,8 +54,9 @@ async function getData() {
     deleteb.textContent = "Delete";
 
     wrap.appendChild(card);
-
+    console.log(wrap)
   });
+loading.style.display="none";
 }
 
 
