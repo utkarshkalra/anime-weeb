@@ -1,8 +1,7 @@
-
 const URL = "https://anime-server.herokuapp.com/animes";
 const wrap = document.querySelector("#wrapper");
 const element = document.getElementById("up");
-const loading =document.querySelector("#loading");
+const loading = document.querySelector("#loading");
 
 //adding scroll;
 
@@ -13,7 +12,6 @@ async function getData() {
   console.log("kar diya");
 
   data.map((item) => {
-
     const card = document.createElement("div");
     const image = document.createElement("img");
     const cardbody = document.createElement("div");
@@ -33,10 +31,10 @@ async function getData() {
     updateb.classList.add("btn", "btn-secondary", "update", "mt-auto");
     deleteb.classList.add("btn", "btn-danger", "delete");
 
-    updateb.id = "updateanime"
-    deleteb.id = "delanime"
+    updateb.id = "updateanime";
+    deleteb.id = "delanime";
 
-    cardbody.setAttribute('data-id', `${item._id}`);
+    cardbody.setAttribute("data-id", `${item._id}`);
 
     card.appendChild(image);
     card.appendChild(cardbody);
@@ -45,8 +43,6 @@ async function getData() {
     cardbody.appendChild(updateb);
     cardbody.appendChild(deleteb);
 
-
-
     image.src = item.animeImage || "img/inf.png";
     heading.textContent = item.animeName;
     description.textContent = item.animeDescription;
@@ -54,13 +50,10 @@ async function getData() {
     deleteb.textContent = "Delete";
 
     wrap.appendChild(card);
-    console.log(wrap)
+    console.log(wrap);
   });
-loading.style.display="none";
+  loading.style.display = "none";
 }
-
-
-
 
 wrap.addEventListener("click", (e) => {
   e.preventDefault();
@@ -68,9 +61,7 @@ wrap.addEventListener("click", (e) => {
   let updatebutpress = e.target.id == "updateanime";
   let delbutpress = e.target.id == "delanime";
 
-
   // DELETE ANIME //
-
 
   if (delbutpress) {
     const parent = e.target.parentElement;
@@ -78,20 +69,18 @@ wrap.addEventListener("click", (e) => {
     let name = parent.querySelector(".card-title").textContent;
 
     if (confirm(`do you want to delete ${name} card `)) {
-
       const id = e.target.parentElement.dataset.id;
 
       const options = {
         method: "DELETE",
       };
 
-      fetch(`${URL}/${id}`, options).then(res => res.json()).then(() => location.reload());
-
-
+      fetch(`${URL}/${id}`, options)
+        .then((res) => res.json())
+        .then(() => location.reload());
     }
   }
   //updateanime
-
 
   if (updatebutpress) {
     element.style.display = "";
@@ -102,7 +91,6 @@ wrap.addEventListener("click", (e) => {
     let name = parent.querySelector(".card-title").textContent;
     let des = parent.querySelector(".card-text").textContent;
     let imagebox = parent.parentElement.querySelector(".card-img-top").src;
-
 
     if (confirm(`do u wanna update ${name} card `)) {
       var updatename = document.getElementById("name");
@@ -124,51 +112,36 @@ wrap.addEventListener("click", (e) => {
           read.onload = (e) => {
             animeImage = e.target.result;
             //console.log(animeImage);
-          }
-
+          };
         }
       }
 
       var inputFileToLoad = document.getElementById("image");
       inputFileToLoad.addEventListener("change", function () {
-        createimage()
+        createimage();
       });
-
-
 
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
-
 
       button.addEventListener("click", (e) => {
         fetch(`${URL}/${id}`, {
           method: "PATCH",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             animeName: updatename.value,
             animeDescription: updatedes.value,
-            animeImage: animeImage || imagebox
-
-
-          })
+            animeImage: animeImage || imagebox,
+          }),
         })
-          .then(res => res.json())
+          .then((res) => res.json())
           .then((res) => {
             //console.log(res);
-            location.reload()
-
-          })
-      })
+            location.reload();
+          });
+      });
     }
-
   }
-
-
-})
-
-
-
-
-
+});

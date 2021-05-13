@@ -10,16 +10,14 @@
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="./Add_new/dataform.css" />
+    <link rel="stylesheet" href="dataform.css" />
     <title>Anime</title>
   </head>
 
   <body>
-    <!-- Image and text -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
-        <a class="navbar-brand" href="">Anime Weeb</a>
+        <a class="navbar-brand" href="#">Anime Weeb</a>
         <button
           class="navbar-toggler"
           type="button"
@@ -34,10 +32,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="../">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./Add_new/newdata.html">Add new</a>
+              <a class="nav-link active" aria-current="page" href="newdata.html"
+                >Add new</a
+              >
             </li>
             <!-- <li class="nav-item">
               <a class="nav-link" href="#">Anime Watch list</a>
@@ -46,15 +46,19 @@
         </div>
       </div>
     </nav>
+    <div class="container">
+      <h1 class="mt-4 mb-4">Add a new Anime</h1>
 
-    <div class="container" id="up" style="display: none">
-      <h1 class="mt-4 mb-4">Update the Anime</h1>
+      <span class="green" id="addspan"
+        >Adding it
+        <div class="loader"></div>
+      </span>
       <div class="mb-3">
-        <label for="name" class="form-label"></label>
+        <label for="name" class="form-label">Anime Name</label>
         <input type="text" class="form-control" id="name" placeholder="Name" />
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label"></label>
+        <label for="description" class="form-label">Description</label>
         <div class="form-floating">
           <textarea
             class="form-control"
@@ -66,25 +70,12 @@
 
       <div class="mb-3 mt-4">
         <label for="image">Select Image:</label>
-        <input
-          type="file"
-          class="form-control-file"
-          id="image"
-          accept="image/*"
-        />
+        <input type="file" class="form-control-file" id="image" />
       </div>
-      <button type="button" class="btn btn-primary" id="btn">update</button>
+      <button type="button" class="btn btn-primary" id="btn">Submit</button>
     </div>
-
-    <div class="loading" id="loading">
-      <h1>Loading</h1>
-      <div class="loader"></div>
-    </div>
-
-    <div class="d-flex flex-wrap" id="wrapper"></div>
   </body>
-  <script src="index.js"></script>
-
+  <script src="app.js"></script>
   <script
     src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"

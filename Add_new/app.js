@@ -1,5 +1,7 @@
 const URL = "https://anime-server.herokuapp.com/animes";
-animeImage="";
+
+const span = document.getElementById("addspan");
+animeImage = "";
 function createimage() {
   // console.log("hello")
   let image = document.getElementById("image").files;
@@ -12,25 +14,21 @@ function createimage() {
     read.onload = (e) => {
       animeImage = e.target.result;
       //console.log(animeImage);
-    }
-
+    };
   }
 }
 
 var inputFileToLoad = document.getElementById("image");
 inputFileToLoad.addEventListener("change", function () {
-  createimage()
+  createimage();
 });
-
-
 
 document.querySelector("#btn").addEventListener(
   "click",
   (postData = async () => {
+    span.style.display = "flex";
     let animeName = document.getElementById("name").value;
     let animeDescription = document.getElementById("description").value;
-
-
 
     const data = { animeName, animeDescription, animeImage };
     const options = {
@@ -45,7 +43,12 @@ document.querySelector("#btn").addEventListener(
     const blob = await res.json();
     //console.log(blob);
 
-    alert("added!!");
-    location.reload();
+    span.innerHTML = "Added!";
+    span.style.backgroundColor = "green";
+    span.style.color = "white";
+
+    setTimeout(function () {
+      location.reload();
+    }, 1000);
   })
 );

@@ -8,3 +8,47 @@ label,
 #image {
   color: white;
 }
+
+span.green {
+  display: none;
+  justify-content: space-around;
+  border: 2px solid green;
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: green;
+  margin-bottom: 1rem;
+  padding: 0.2rem 0.2rem 0.2rem 0.2rem;
+  max-width: 150px;
+}
+
+span > .loader {
+  background-color: transparent;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  border-top: 5px solid green;
+  width: 29px;
+  height: 29px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  padding: 0.2rem 0;
+  /* display: inline-block; */
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
