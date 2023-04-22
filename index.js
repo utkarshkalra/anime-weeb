@@ -1,4 +1,4 @@
-const URL = "https://anime-server.herokuapp.com/animes";
+const URL = "https://anime-server-production.up.railway.app/anime";
 const wrap = document.querySelector("#wrapper");
 const element = document.getElementById("up");
 const loading = document.querySelector("#loading");
