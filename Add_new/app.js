@@ -1,4 +1,5 @@
-const URL = "https://anime-server.herokuapp.com/animes";
+// const URL = "https://anime-server.herokuapp.com/animes";
+const URL = "https://anime-server-production.up.railway.app/anime";
 
 const span = document.getElementById("addspan");
 animeImage = "";
